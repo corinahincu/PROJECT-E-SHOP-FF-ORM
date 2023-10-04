@@ -1,14 +1,14 @@
 import Fastify from 'fastify'
-import createProductRoute from './product/api.js';
+import ProductRoute from './product/api.js';
 import { Money } from './financial/entities.js';
 import { Product } from './product/entities.js';
-import { createConnection } from 'typeorm';
-import { getRepository } from 'typeorm';
+/* import { createConnection } from 'typeorm';
+import { getRepository } from 'typeorm'; */
 import "reflect-metadata" 
 
 const fastify = Fastify({logger:true})
 
-const connection = await createConnection({
+/* const connection = await createConnection({
   type: 'postgres',
   host: 'localhost',
   port: 5432,
@@ -31,9 +31,9 @@ fastify.get('/', async (request,reply) =>{
     const products = await productRepository.createQueryBuilder('products').getMany();
 
     return products;
-}) 
+})  */
 
-/* fastify.register(createProductRoute)
+fastify.register(ProductRoute)
 fastify.register(import('fastify-typeorm-plugin'), {
   type: 'postgres',
   host: 'localhost',
@@ -55,7 +55,7 @@ fastify.get('/', async (request,reply) =>{
     .getMany()
 
     return products
-}) */
+})
 
 fastify.listen({port:3000}, (err, address) => {
   if (err) {
