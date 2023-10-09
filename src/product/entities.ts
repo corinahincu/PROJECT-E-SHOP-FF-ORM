@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { Money } from '../financial/entities';
+import { Money } from '../financial/entities.js';
 
-@Entity()
+@Entity({name:'product'})
 export class Product {
   @PrimaryGeneratedColumn()
   public id!: number;

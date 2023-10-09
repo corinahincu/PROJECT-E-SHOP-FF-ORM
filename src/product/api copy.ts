@@ -8,7 +8,7 @@ import { ProductRequest, ProductReply, ProductRequestType} from './schemaValidat
 
 const ProductRoute = async (fastify: FastifyInstance) => {
 
-  fastify.post('/products', 
+  fastify.post('/', 
   {
     schema:{
       body: ProductRequest,
